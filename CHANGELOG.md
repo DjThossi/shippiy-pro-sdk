@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Support for the `POST /v1/Ship` endpoint via `ShipApi::ship(ShipRequest): ShipResponse` and `ShippyProFactory::createShipApi()`, with typed request/response modeling: `Address`/`CountryCode`, `Parcel`/`ParcelCollection`, `MoneyAmount` (TotalValue), `Insurance`, `CashOnDelivery`, a `Customs` block with `Cn22Item`/`Cn22ItemCollection` and the `Incoterm`/`CustomInfoContentsType`/`NonDeliveryOption` enums, `CarrierOption`/`CarrierOptionCollection` with documented DHL/UPS helper constants, `LabelFormatting` (PDF/ZPL, cm dimensions, rotate/split/page), and a `ShipResponse` that normalizes the polymorphic `LabelURL` into a typed `LabelUrlCollection`.
+- `examples/ship.php` plus the `make examples-ship` target demonstrating a cross-border shipment with customs data.
 - Initial project structure analogous to `ergosoft-sdk` / `shipcloud-sdk`.
 - Support for the `POST /v1/Ping` endpoint (Bearer-authenticated connection/auth check).
 - Support for the `GET /v2/status` endpoint (public, unauthenticated health check).

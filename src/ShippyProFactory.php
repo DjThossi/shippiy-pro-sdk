@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace DjThossi\ShippyProSdk;
 
 use DjThossi\ShippyProSdk\Api\PingApi;
+use DjThossi\ShippyProSdk\Api\ShipApi;
 use DjThossi\ShippyProSdk\Api\StatusApi;
 use DjThossi\ShippyProSdk\Http\Client;
 use DjThossi\ShippyProSdk\Mapper\ErrorMapper;
 use DjThossi\ShippyProSdk\Mapper\HeaderMapper;
 use DjThossi\ShippyProSdk\Mapper\PingMapper;
+use DjThossi\ShippyProSdk\Mapper\ShipMapper;
 use DjThossi\ShippyProSdk\Mapper\StatusMapper;
 
 final readonly class ShippyProFactory
@@ -39,6 +41,16 @@ final readonly class ShippyProFactory
         );
     }
 
+    public function createShipApi(): ShipApi
+    {
+        return new ShipApi(
+            $this->createClient(),
+            $this->createShipMapper(),
+            $this->createHeaderMapper(),
+            $this->createErrorMapper(),
+        );
+    }
+
     private function createClient(): Client
     {
         return new Client(
@@ -57,6 +69,11 @@ final readonly class ShippyProFactory
     private function createStatusMapper(): StatusMapper
     {
         return new StatusMapper();
+    }
+
+    private function createShipMapper(): ShipMapper
+    {
+        return new ShipMapper();
     }
 
     private function createHeaderMapper(): HeaderMapper

@@ -43,3 +43,7 @@ examples-ping: ## Runs the example code for the Ping API in the PHP version whic
 .PHONY: examples-status
 examples-status: ## Runs the example code for the status API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
 	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} php examples/status.php
+
+.PHONY: examples-ship
+examples-ship: ## Runs the example code for the Ship API in the PHP version which is defined in DOCKER_COMPOSE_SERVICE_NAME
+	docker compose run --rm ${DOCKER_COMPOSE_SERVICE_NAME} php examples/ship.php

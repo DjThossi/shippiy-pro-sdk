@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DjThossi\ShippyProSdk\Tests\Unit;
 
 use DjThossi\ShippyProSdk\Api\PingApi;
+use DjThossi\ShippyProSdk\Api\ShipApi;
 use DjThossi\ShippyProSdk\Api\StatusApi;
 use DjThossi\ShippyProSdk\Domain\ApiKey;
 use DjThossi\ShippyProSdk\Domain\PartnerName;
@@ -37,6 +38,11 @@ final class ShippyProFactoryTest extends TestCase
         $this->assertInstanceOf(StatusApi::class, $this->factory->createStatusApi());
     }
 
+    public function testCreateShipApiReturnsShipApi(): void
+    {
+        $this->assertInstanceOf(ShipApi::class, $this->factory->createShipApi());
+    }
+
     public function testCreatePingApiReturnsFreshInstances(): void
     {
         $this->assertNotSame($this->factory->createPingApi(), $this->factory->createPingApi());
@@ -48,5 +54,6 @@ final class ShippyProFactoryTest extends TestCase
 
         $this->assertInstanceOf(PingApi::class, $factory->createPingApi());
         $this->assertInstanceOf(StatusApi::class, $factory->createStatusApi());
+        $this->assertInstanceOf(ShipApi::class, $factory->createShipApi());
     }
 }

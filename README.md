@@ -8,6 +8,7 @@ This library supports the following endpoints at the moment:
 
 - `POST /v1/Ping` — Bearer-authenticated connection/auth check of the v1 API.
 - `GET /v2/status` — public (unauthenticated) health check of the v2 API.
+- `POST /v1/Ship` — create a shipment and get labels, incl. customs (CN22) and DHL/UPS carrier options.
 
 This library is made for PHP projects featuring PHP version 8.5+.
 
