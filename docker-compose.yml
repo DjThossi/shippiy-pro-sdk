@@ -1,0 +1,10 @@
+services:
+  php:
+    image: ronisaha/php-8-debian:cli-8.5.12
+    volumes:
+      - ./:/var/www
+      - ~/.ssh:/root/.ssh:ro
+      - ~/.composer:/root/.composer
+    working_dir: /var/www
+    environment:
+      - XDEBUG_MODE=coverage
